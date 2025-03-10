@@ -31,7 +31,8 @@
 #define JSON_ERROR   1
 
 /** Custom typedefs */
-typedef json_t JSON_OBJ;
+typedef json_t      JSON_OBJ;
+typedef json_int_t  JSON_INT_MAX;
 
 #ifdef __cplusplus
 extern "C"
@@ -65,7 +66,7 @@ int json_get_object(JSON_OBJ *root, const char *tag, JSON_OBJ **obj);
  * @param[out] val Pointer to store the retrieved integer.
  * @return JSON_SUCCESS on success, JSON_ERROR on failure.
  */
-int json_get_integer(JSON_OBJ *obj, const char *tag, int *val);
+int json_get_integer(JSON_OBJ *obj, const char *tag, JSON_INT_MAX *val);
 
 //-------------------------------------------------------------------------------------------------
 /**
@@ -105,7 +106,7 @@ int json_get_array(JSON_OBJ *obj, const char *tag, JSON_OBJ **array);
  * @param[out] val Pointer to store the retrieved integer.
  * @return JSON_SUCCESS on success, JSON_ERROR on failure.
  */
-int json_get_integer_from_array(JSON_OBJ *array, size_t index, int *val);
+int json_get_integer_from_array(JSON_OBJ *array, size_t index, JSON_INT_MAX *val);
 
 //-------------------------------------------------------------------------------------------------
 /**
@@ -145,7 +146,7 @@ int json_get_object_from_array(JSON_OBJ *array, size_t index, JSON_OBJ **obj);
  * @param[in] val Integer value to set.
  * @return JSON_SUCCESS on success, JSON_ERROR on failure.
  */
-int json_set_integer(JSON_OBJ *obj, const char *tag, int val);
+int json_set_integer(JSON_OBJ *obj, const char *tag, JSON_INT_MAX val);
 
 //-------------------------------------------------------------------------------------------------
 /**
